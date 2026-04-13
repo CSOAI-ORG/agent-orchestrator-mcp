@@ -1,0 +1,29 @@
+{
+  "name": "agent-orchestrator-mcp",
+  "description": "MEOK AI Labs \u2014 Multi-agent task management system. Create agents with roles and capabilities,",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
+  "runtime": "python",
+  "entrypoint": "server.py",
+  "tools": [
+    "create_agent",
+    "list_agents",
+    "delegate_task",
+    "complete_task",
+    "acquire_files",
+    "release_files",
+    "start_sprint",
+    "complete_sprint",
+    "get_dashboard",
+    "get_task_queue"
+  ],
+  "categories": [
+    "AI Agents",
+    "Orchestration"
+  ],
+  "pricing": {
+    "free": "50 calls/day",
+    "pro": "$9/mo"
+  }
+}
