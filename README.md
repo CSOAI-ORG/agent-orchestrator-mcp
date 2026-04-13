@@ -1,3 +1,5 @@
+> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+
 # Agent Orchestrator MCP Server
 
 Multi-agent task management system for AI applications. Create agents with roles and capabilities, delegate tasks with trust-based routing, coordinate file access to prevent conflicts, run focused sprints, and monitor performance through a unified dashboard.
