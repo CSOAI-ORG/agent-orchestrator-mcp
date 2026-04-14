@@ -308,8 +308,7 @@ store = AgentStore()
 # ---------------------------------------------------------------------------
 mcp = FastMCP(
     "Agent Orchestrator MCP",
-    instructions="Multi-agent task management: create agents, delegate tasks with trust-based routing, coordinate file access, run sprints, and monitor performance.",
-)
+    instructions="Multi-agent task management: create agents, delegate tasks with trust-based routing, coordinate file access, run sprints, and monitor performance.")
 
 
 @mcp.tool()
