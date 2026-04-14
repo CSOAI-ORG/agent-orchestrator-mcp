@@ -11,6 +11,11 @@ Install: pip install mcp
 Run:     python server.py
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import uuid
 import time
@@ -314,10 +319,14 @@ mcp = FastMCP(
 @mcp.tool()
 def create_agent(name: str, role: str, department: str = "general",
                  capabilities: list[str] | None = None,
-                 instructions: str = "") -> dict:
+                 instructions: str = "", api_key: str = "") -> dict:
     """Create a new agent with a name, role, department, and capabilities.
     Agents accumulate trust through successful task completion.
     Free tier: max 10 agents."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -325,9 +334,13 @@ def create_agent(name: str, role: str, department: str = "general",
 
 
 @mcp.tool()
-def list_agents(department: str | None = None) -> dict:
+def list_agents(department: str | None = None, api_key: str = "") -> dict:
     """List all registered agents with their trust levels, task counts, and status.
     Optionally filter by department."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -340,10 +353,14 @@ def delegate_task(task: str, agent_id: str | None = None,
                   capability: str | None = None,
                   department: str | None = None,
                   priority: str = "normal",
-                  care_score: float = 0.5) -> dict:
+                  care_score: float = 0.5, api_key: str = "") -> dict:
     """Delegate a task to a specific agent or auto-route to the best match
     based on capability, department, and trust level. Priority: low/normal/high/urgent.
     Care score (0-1) influences trust updates on completion."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -352,10 +369,14 @@ def delegate_task(task: str, agent_id: str | None = None,
 
 @mcp.tool()
 def complete_task(task_id: str, agent_id: str, result_summary: str,
-                  care_score: float = 0.5, success: bool = True) -> dict:
+                  care_score: float = 0.5, success: bool = True, api_key: str = "") -> dict:
     """Mark a task as completed (or failed). Updates the agent's trust level
     based on success/failure and care score. Successful tasks increase trust,
     failed tasks decrease it."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -364,10 +385,14 @@ def complete_task(task_id: str, agent_id: str, result_summary: str,
 
 @mcp.tool()
 def acquire_files(agent_id: str, files: list[str], task_id: str,
-                  exclusive: bool = False) -> dict:
+                  exclusive: bool = False, api_key: str = "") -> dict:
     """Acquire file locks for coordinated multi-agent work. Prevents conflicts
     when multiple agents need to modify the same files. Set exclusive=true for
     write locks, false for read locks."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -375,8 +400,12 @@ def acquire_files(agent_id: str, files: list[str], task_id: str,
 
 
 @mcp.tool()
-def release_files(agent_id: str, files: list[str]) -> dict:
+def release_files(agent_id: str, files: list[str], api_key: str = "") -> dict:
     """Release file locks held by an agent after task completion."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -384,9 +413,13 @@ def release_files(agent_id: str, files: list[str]) -> dict:
 
 
 @mcp.tool()
-def start_sprint(name: str, goals: list[str], duration_minutes: int = 60) -> dict:
+def start_sprint(name: str, goals: list[str], duration_minutes: int = 60, api_key: str = "") -> dict:
     """Start a focused sprint with named goals and a time limit. Sprints help
     agents coordinate on a set of objectives within a deadline."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -395,9 +428,13 @@ def start_sprint(name: str, goals: list[str], duration_minutes: int = 60) -> dic
 
 @mcp.tool()
 def complete_sprint(sprint_id: str, completed_goals: list[str] | None = None,
-                    summary: str = "") -> dict:
+                    summary: str = "", api_key: str = "") -> dict:
     """Complete a sprint and record which goals were achieved. Returns the
     completion rate percentage."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -405,9 +442,13 @@ def complete_sprint(sprint_id: str, completed_goals: list[str] | None = None,
 
 
 @mcp.tool()
-def get_dashboard() -> dict:
+def get_dashboard(api_key: str = "") -> dict:
     """Get the full orchestration dashboard: agent count, trust averages,
     task breakdown by status, active sprints, file locks, and department distribution."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -416,9 +457,13 @@ def get_dashboard() -> dict:
 
 @mcp.tool()
 def get_task_queue(status: str | None = None, agent_id: str | None = None,
-                   limit: int = 20) -> dict:
+                   limit: int = 20, api_key: str = "") -> dict:
     """Get the task queue, optionally filtered by status (assigned/completed/failed)
     or agent. Returns tasks sorted by most recent."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}

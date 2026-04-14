@@ -1,10 +1,132 @@
 name: agent-orchestrator-mcp
-description: "MEOK AI Labs — Multi-agent task management system. Create agents with roles and capabilities,"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/agent-orchestrator-mcp
-license: MIT
-categories: [AI Agents, Orchestration]
-tags: [agent-orchestration, multi-agent, workflow-automation, task-delegation]
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: create_agent
+  description: Create a new agent with a name, role, department, and capabilities.
+  parameters:
+  - name: name
+    type: string
+    required: true
+  - name: role
+    type: string
+    required: true
+  - name: department
+    type: string
+    required: false
+  - name: capabilities
+    type: string
+    required: false
+  - name: instructions
+    type: string
+    required: false
+- name: list_agents
+  description: List all registered agents with their trust levels, task counts, and
+    status.
+  parameters:
+  - name: department
+    type: string
+    required: false
+- name: delegate_task
+  description: Delegate a task to a specific agent or auto-route to the best match
+  parameters:
+  - name: task
+    type: string
+    required: true
+  - name: agent_id
+    type: string
+    required: false
+  - name: capability
+    type: string
+    required: false
+  - name: department
+    type: string
+    required: false
+  - name: priority
+    type: string
+    required: false
+  - name: care_score
+    type: number
+    required: false
+- name: complete_task
+  description: Mark a task as completed (or failed). Updates the agent's trust level
+  parameters:
+  - name: task_id
+    type: string
+    required: true
+  - name: agent_id
+    type: string
+    required: true
+  - name: result_summary
+    type: string
+    required: true
+  - name: care_score
+    type: number
+    required: false
+  - name: success
+    type: boolean
+    required: false
+- name: acquire_files
+  description: Acquire file locks for coordinated multi-agent work. Prevents conflicts
+  parameters:
+  - name: agent_id
+    type: string
+    required: true
+  - name: files
+    type: array
+    required: true
+  - name: task_id
+    type: string
+    required: true
+  - name: exclusive
+    type: boolean
+    required: false
+- name: release_files
+  description: Release file locks held by an agent after task completion.
+  parameters:
+  - name: agent_id
+    type: string
+    required: true
+  - name: files
+    type: array
+    required: true
+- name: start_sprint
+  description: Start a focused sprint with named goals and a time limit. Sprints help
+  parameters:
+  - name: name
+    type: string
+    required: true
+  - name: goals
+    type: array
+    required: true
+  - name: duration_minutes
+    type: integer
+    required: false
+- name: complete_sprint
+  description: Complete a sprint and record which goals were achieved. Returns the
+  parameters:
+  - name: sprint_id
+    type: string
+    required: true
+  - name: completed_goals
+    type: string
+    required: false
+  - name: summary
+    type: string
+    required: false
+- name: get_dashboard
+  description: 'Get the full orchestration dashboard: agent count, trust averages,'
+  parameters: []
+- name: get_task_queue
+  description: Get the task queue, optionally filtered by status (assigned/completed/failed)
+  parameters:
+  - name: status
+    type: string
+    required: false
+  - name: agent_id
+    type: string
+    required: false
+  - name: limit
+    type: integer
+    required: false

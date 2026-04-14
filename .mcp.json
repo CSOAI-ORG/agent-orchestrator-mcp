@@ -1,29 +1,232 @@
 {
   "name": "agent-orchestrator-mcp",
-  "description": "MEOK AI Labs \u2014 Multi-agent task management system. Create agents with roles and capabilities,",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
   "tools": [
-    "create_agent",
-    "list_agents",
-    "delegate_task",
-    "complete_task",
-    "acquire_files",
-    "release_files",
-    "start_sprint",
-    "complete_sprint",
-    "get_dashboard",
-    "get_task_queue"
-  ],
-  "categories": [
-    "AI Agents",
-    "Orchestration"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "create_agent",
+      "description": "Create a new agent with a name, role, department, and capabilities.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "capabilities": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "role"
+        ]
+      }
+    },
+    {
+      "name": "list_agents",
+      "description": "List all registered agents with their trust levels, task counts, and status.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "department": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "delegate_task",
+      "description": "Delegate a task to a specific agent or auto-route to the best match",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string"
+          },
+          "agent_id": {
+            "type": "string"
+          },
+          "capability": {
+            "type": "string"
+          },
+          "department": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "care_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "task"
+        ]
+      }
+    },
+    {
+      "name": "complete_task",
+      "description": "Mark a task as completed (or failed). Updates the agent's trust level",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "agent_id": {
+            "type": "string"
+          },
+          "result_summary": {
+            "type": "string"
+          },
+          "care_score": {
+            "type": "number"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "task_id",
+          "agent_id",
+          "result_summary"
+        ]
+      }
+    },
+    {
+      "name": "acquire_files",
+      "description": "Acquire file locks for coordinated multi-agent work. Prevents conflicts",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "agent_id",
+          "files",
+          "task_id"
+        ]
+      }
+    },
+    {
+      "name": "release_files",
+      "description": "Release file locks held by an agent after task completion.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "agent_id",
+          "files"
+        ]
+      }
+    },
+    {
+      "name": "start_sprint",
+      "description": "Start a focused sprint with named goals and a time limit. Sprints help",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "goals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration_minutes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "goals"
+        ]
+      }
+    },
+    {
+      "name": "complete_sprint",
+      "description": "Complete a sprint and record which goals were achieved. Returns the",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sprint_id": {
+            "type": "string"
+          },
+          "completed_goals": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sprint_id"
+        ]
+      }
+    },
+    {
+      "name": "get_dashboard",
+      "description": "Get the full orchestration dashboard: agent count, trust averages,",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_task_queue",
+      "description": "Get the task queue, optionally filtered by status (assigned/completed/failed)",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "agent_id": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": []
+      }
+    }
+  ]
 }
