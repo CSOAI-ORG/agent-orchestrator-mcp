@@ -1,0 +1,78 @@
+{
+  "name": "Agent Orchestrator MCP",
+  "description": "Multi-agent task management: create agents, delegate tasks with trust-based routing, coordinate file access, run sprints, and monitor performance.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "create_agent",
+      "description": "Create a new agent with a name, role, department, and capabilities."
+    },
+    {
+      "name": "list_agents",
+      "description": "List all registered agents with their trust levels, task counts, and status."
+    },
+    {
+      "name": "delegate_task",
+      "description": "Delegate a task to a specific agent or auto-route to the best match"
+    },
+    {
+      "name": "complete_task",
+      "description": "Mark a task as completed (or failed). Updates the agent's trust level"
+    },
+    {
+      "name": "acquire_files",
+      "description": "Acquire file locks for coordinated multi-agent work. Prevents conflicts"
+    },
+    {
+      "name": "release_files",
+      "description": "Release file locks held by an agent after task completion."
+    },
+    {
+      "name": "start_sprint",
+      "description": "Start a focused sprint with named goals and a time limit. Sprints help"
+    },
+    {
+      "name": "complete_sprint",
+      "description": "Complete a sprint and record which goals were achieved. Returns the"
+    },
+    {
+      "name": "get_dashboard",
+      "description": "Get the full orchestration dashboard: agent count, trust averages,"
+    },
+    {
+      "name": "get_task_queue",
+      "description": "Get the task queue, optionally filtered by status (assigned/completed/failed)"
+    }
+  ],
+  "categories": [
+    "Agent Infrastructure",
+    "DevOps & Infrastructure",
+    "Productivity"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
