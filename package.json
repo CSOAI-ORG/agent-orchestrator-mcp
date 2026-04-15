@@ -1,7 +1,7 @@
 {
   "name": "agent-orchestrator-mcp",
   "version": "1.0.0",
-  "description": "MEOK AI Labs — agent orchestrator MCP Server",
+  "description": "MCP server for agent orchestrator. Features create agent, list agents, delegate task. From MEOK AI Labs.",
   "main": "server.py",
   "mcp": {
     "name": "agent orchestrator",
@@ -9,10 +9,22 @@
     "homepage": "https://meok.ai",
     "repository": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
     "runtime": "python",
-    "tags": ["mcp", "mcp-server", "meok-ai-labs", "ai-tools"]
+    "tags": [
+      "mcp",
+      "mcp-server",
+      "meok-ai-labs",
+      "ai-tools"
+    ]
   },
-  "keywords": ["mcp", "mcp-server", "meok-ai-labs"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "meok-ai-labs"
+  ],
   "author": "MEOK AI Labs <nicholas@meok.ai>",
   "license": "MIT",
-  "repository": {"type": "git", "url": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp"}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp"
+  }
 }

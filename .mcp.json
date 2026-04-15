@@ -1,6 +1,6 @@
 {
   "name": "agent-orchestrator-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Multi-agent task management: create agents, delegate tasks with trust-based routing, coordinate file",
+  "description": "MCP server for agent orchestrator. Features create agent, list agents, delegate task. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
