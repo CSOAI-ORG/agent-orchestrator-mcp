@@ -1,6 +1,6 @@
 name: agent-orchestrator-mcp
-description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
-  \ everyone."
+description: 'Multi-agent task management: create agents, delegate tasks with trust-based
+  routing, coordinate file'
 version: 1.0.0
 tools:
 - name: create_agent
@@ -16,7 +16,7 @@ tools:
     type: string
     required: false
   - name: capabilities
-    type: string
+    type: array
     required: false
   - name: instructions
     type: string
@@ -110,7 +110,7 @@ tools:
     type: string
     required: true
   - name: completed_goals
-    type: string
+    type: array
     required: false
   - name: summary
     type: string

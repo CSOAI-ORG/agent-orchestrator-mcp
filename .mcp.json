@@ -1,6 +1,6 @@
 {
   "name": "agent-orchestrator-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Multi-agent task management: create agents, delegate tasks with trust-based routing, coordinate file",
   "version": "1.0.0",
   "tools": [
     {
@@ -19,7 +19,7 @@
             "type": "string"
           },
           "capabilities": {
-            "type": "string"
+            "type": "array"
           },
           "instructions": {
             "type": "string"
@@ -113,10 +113,7 @@
             "type": "string"
           },
           "files": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "task_id": {
             "type": "string"
@@ -142,10 +139,7 @@
             "type": "string"
           },
           "files": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           }
         },
         "required": [
@@ -164,10 +158,7 @@
             "type": "string"
           },
           "goals": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "duration_minutes": {
             "type": "integer"
@@ -189,7 +180,7 @@
             "type": "string"
           },
           "completed_goals": {
-            "type": "string"
+            "type": "array"
           },
           "summary": {
             "type": "string"
