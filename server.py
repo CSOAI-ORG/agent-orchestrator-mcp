@@ -337,6 +337,15 @@ def create_agent(name: str, role: str, department: str = "general",
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        name (str): The name to analyze or process.
+        role (str): The role to analyze or process.
+        department (str): The department to analyze or process.
+        capabilities (list[str] | None): The capabilities to analyze or process.
+        instructions (str): The instructions to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -381,6 +390,11 @@ def list_agents(department: str | None = None, api_key: str = "") -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        department (str | None): The department to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -431,6 +445,16 @@ def delegate_task(task: str, agent_id: str | None = None,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        task (str): The task to analyze or process.
+        agent_id (str | None): The agent id to analyze or process.
+        capability (str | None): The capability to analyze or process.
+        department (str | None): The department to analyze or process.
+        priority (str): The priority to analyze or process.
+        care_score (float): The care score to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -477,6 +501,15 @@ def complete_task(task_id: str, agent_id: str, result_summary: str,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        task_id (str): The task id to analyze or process.
+        agent_id (str): The agent id to analyze or process.
+        result_summary (str): The result summary to analyze or process.
+        care_score (float): The care score to analyze or process.
+        success (bool): The success to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -523,6 +556,14 @@ def acquire_files(agent_id: str, files: list[str], task_id: str,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        agent_id (str): The agent id to analyze or process.
+        files (list[str]): The files to analyze or process.
+        task_id (str): The task id to analyze or process.
+        exclusive (bool): The exclusive to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -566,6 +607,12 @@ def release_files(agent_id: str, files: list[str], api_key: str = "") -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        agent_id (str): The agent id to analyze or process.
+        files (list[str]): The files to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -610,6 +657,13 @@ def start_sprint(name: str, goals: list[str], duration_minutes: int = 60, api_ke
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        name (str): The name to analyze or process.
+        goals (list[str]): The goals to analyze or process.
+        duration_minutes (int): The duration minutes to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -655,6 +709,13 @@ def complete_sprint(sprint_id: str, completed_goals: list[str] | None = None,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        sprint_id (str): The sprint id to analyze or process.
+        completed_goals (list[str] | None): The completed goals to analyze or process.
+        summary (str): The summary to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -699,6 +760,10 @@ def get_dashboard(api_key: str = "") -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -744,6 +809,13 @@ def get_task_queue(status: str | None = None, agent_id: str | None = None,
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        status (str | None): The status to analyze or process.
+        agent_id (str | None): The agent id to analyze or process.
+        limit (int): The limit to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
