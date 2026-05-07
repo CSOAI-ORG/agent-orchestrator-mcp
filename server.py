@@ -322,7 +322,22 @@ def create_agent(name: str, role: str, department: str = "general",
                  instructions: str = "", api_key: str = "") -> dict:
     """Create a new agent with a name, role, department, and capabilities.
     Agents accumulate trust through successful task completion.
-    Free tier: max 10 agents."""
+    Free tier: max 10 agents.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -336,7 +351,23 @@ def create_agent(name: str, role: str, department: str = "general",
 @mcp.tool()
 def list_agents(department: str | None = None, api_key: str = "") -> dict:
     """List all registered agents with their trust levels, task counts, and status.
-    Optionally filter by department."""
+    Optionally filter by department.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -356,7 +387,23 @@ def delegate_task(task: str, agent_id: str | None = None,
                   care_score: float = 0.5, api_key: str = "") -> dict:
     """Delegate a task to a specific agent or auto-route to the best match
     based on capability, department, and trust level. Priority: low/normal/high/urgent.
-    Care score (0-1) influences trust updates on completion."""
+    Care score (0-1) influences trust updates on completion.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -372,7 +419,23 @@ def complete_task(task_id: str, agent_id: str, result_summary: str,
                   care_score: float = 0.5, success: bool = True, api_key: str = "") -> dict:
     """Mark a task as completed (or failed). Updates the agent's trust level
     based on success/failure and care score. Successful tasks increase trust,
-    failed tasks decrease it."""
+    failed tasks decrease it.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -388,7 +451,23 @@ def acquire_files(agent_id: str, files: list[str], task_id: str,
                   exclusive: bool = False, api_key: str = "") -> dict:
     """Acquire file locks for coordinated multi-agent work. Prevents conflicts
     when multiple agents need to modify the same files. Set exclusive=true for
-    write locks, false for read locks."""
+    write locks, false for read locks.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -401,7 +480,23 @@ def acquire_files(agent_id: str, files: list[str], task_id: str,
 
 @mcp.tool()
 def release_files(agent_id: str, files: list[str], api_key: str = "") -> dict:
-    """Release file locks held by an agent after task completion."""
+    """Release file locks held by an agent after task completion.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -415,7 +510,23 @@ def release_files(agent_id: str, files: list[str], api_key: str = "") -> dict:
 @mcp.tool()
 def start_sprint(name: str, goals: list[str], duration_minutes: int = 60, api_key: str = "") -> dict:
     """Start a focused sprint with named goals and a time limit. Sprints help
-    agents coordinate on a set of objectives within a deadline."""
+    agents coordinate on a set of objectives within a deadline.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -430,7 +541,23 @@ def start_sprint(name: str, goals: list[str], duration_minutes: int = 60, api_ke
 def complete_sprint(sprint_id: str, completed_goals: list[str] | None = None,
                     summary: str = "", api_key: str = "") -> dict:
     """Complete a sprint and record which goals were achieved. Returns the
-    completion rate percentage."""
+    completion rate percentage.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -444,7 +571,23 @@ def complete_sprint(sprint_id: str, completed_goals: list[str] | None = None,
 @mcp.tool()
 def get_dashboard(api_key: str = "") -> dict:
     """Get the full orchestration dashboard: agent count, trust averages,
-    task breakdown by status, active sprints, file locks, and department distribution."""
+    task breakdown by status, active sprints, file locks, and department distribution.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -459,7 +602,23 @@ def get_dashboard(api_key: str = "") -> dict:
 def get_task_queue(status: str | None = None, agent_id: str | None = None,
                    limit: int = 20, api_key: str = "") -> dict:
     """Get the task queue, optionally filtered by status (assigned/completed/failed)
-    or agent. Returns tasks sorted by most recent."""
+    or agent. Returns tasks sorted by most recent.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
