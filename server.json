@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "CSOAI-ORG/agent-orchestrator-mcp",
+  "version": "1.0.0",
+  "description": "Agent Orchestrator MCP Server by MEOK AI Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
+    "source": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "agent-orchestrator-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "python",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
