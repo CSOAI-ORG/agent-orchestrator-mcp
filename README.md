@@ -1,3 +1,5 @@
+[![agent-orchestrator-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/agent-orchestrator-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/agent-orchestrator-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/agent-orchestrator-mcp)](https://github.com/CSOAI-ORG/agent-orchestrator-mcp/stargazers)
