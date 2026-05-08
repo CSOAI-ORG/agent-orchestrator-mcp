@@ -6,40 +6,57 @@
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/agent-orchestrator-mcp)](https://github.com/CSOAI-ORG/agent-orchestrator-mcp/stargazers)
+# Agent Orchestrator MCP
 
-# uagentU orchestratorU mcp
+**MCP server for agent orchestrator mcp operations**
 
-****
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/agent-orchestrator-mcp)](https://www.npmjs.com/package/@meok-ai/agent-orchestrator-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-agent-orchestrator-mcp)](https://pypi.org/project/meok-agent-orchestrator-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/agent-orchestrator-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Agent Orchestrator MCP provides AI-powered tools via the Model Context Protocol (MCP).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `create_agent` | Create a new agent with a name, role, department, and capabilities. |
+| `list_agents` | List all registered agents with their trust levels, task counts, and status. |
+| `delegate_task` | Delegate a task to a specific agent or auto-route to the best match |
+| `complete_task` | Mark a task as completed (or failed). Updates the agent's trust level |
+| `acquire_files` | Acquire file locks for coordinated multi-agent work. Prevents conflicts |
+| `release_files` | Release file locks held by an agent after task completion. |
+| `start_sprint` | Start a focused sprint with named goals and a time limit. Sprints help |
+| `complete_sprint` | Complete a sprint and record which goals were achieved. Returns the |
+| `get_dashboard` | Get the full orchestration dashboard: agent count, trust averages, |
+| `get_task_queue` | Get the task queue, optionally filtered by status (assigned/completed/failed) |
 
 ## Installation
 
 ```bash
-pip install agent-orchestrator-mcp
-# or
-npm install -g @meok-ai/agent-orchestrator-mcp
+pip install meok-agent-orchestrator-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config:
 
-## Enterprise Support
-
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+```json
+{
+  "mcpServers": {
+    "agent-orchestrator-mcp": {
+      "command": "python",
+      "args": ["-m", "meok_agent_orchestrator_mcp.server"]
+    }
+  }
+}
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
+MIT © [MEOK AI Labs](https://meok.ai)
 <!-- mcp-name: io.github.CSOAI-ORG/agent-orchestrator-mcp -->
