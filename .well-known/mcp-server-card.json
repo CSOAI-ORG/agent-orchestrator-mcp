@@ -1,0 +1,6 @@
+{
+  "serverInfo": { "name": "agent-orchestrator-mcp", "version": "1.0.0" },
+  "tools": [
+    {"name": "save", "description": "MCP tool from MEOK AI Labs"}, {"name": "create_agent", "description": "MCP tool from MEOK AI Labs"}, {"name": "get_agent", "description": "MCP tool from MEOK AI Labs"}, {"name": "list_agents", "description": "MCP tool from MEOK AI Labs"}, {"name": "find_best_agent", "description": "MCP tool from MEOK AI Labs"}
+  ]
+}

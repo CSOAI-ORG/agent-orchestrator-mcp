@@ -1,0 +1,51 @@
+# agent-orchestrator-mcp
+# **MCP server for agent orchestrator mcp operations**
+
+## Install
+```bash
+pip install agent-orchestrator-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `create_agent`
+Create a new agent with a name, role, department, and capabilities.
+
+### `list_agents`
+List all registered agents with their trust levels, task counts, and status.
+
+### `delegate_task`
+Delegate a task to a specific agent or auto-route to the best match
+
+### `complete_task`
+Mark a task as completed (or failed). Updates the agent's trust level
+
+### `acquire_files`
+Acquire file locks for coordinated multi-agent work. Prevents conflicts
+
+### `release_files`
+Release file locks held by an agent after task completion.
+
+### `start_sprint`
+Start a focused sprint with named goals and a time limit. Sprints help
+
+### `complete_sprint`
+Complete a sprint and record which goals were achieved. Returns the
+
+### `get_dashboard`
+Get the full orchestration dashboard: agent count, trust averages,
+
+### `get_task_queue`
+Get the task queue, optionally filtered by status (assigned/completed/failed)
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

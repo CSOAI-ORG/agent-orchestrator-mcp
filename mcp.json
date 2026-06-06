@@ -1,0 +1,10 @@
+{
+  "name": "Agent Orchestrator",
+  "description": "Multi-agent coordination, delegation, and governance framework",
+  "vendor": "MEOK AI Labs",
+  "sourceUrl": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
+  "homepage": "https://meok.ai/mcp/agent-orchestrator-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "server.py"
+}
