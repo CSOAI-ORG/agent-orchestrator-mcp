@@ -1,0 +1,28 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "agent-orchestrator-mcp",
+    "description": "Agent Orchestrator MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "agent-orchestrator-mcp"
+      }
+    ],
+    "capabilities": [
+      "create_agent",
+      "list_agents",
+      "delegate_task",
+      "complete_task",
+      "acquire_files",
+      "release_files",
+      "start_sprint",
+      "complete_sprint",
+      "get_dashboard",
+      "get_task_queue"
+    ]
+  }
+}

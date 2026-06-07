@@ -1,0 +1,113 @@
+{
+  "name": "agent-orchestrator-mcp",
+  "description": "Agent Orchestrator MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/agent-orchestrator-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "create_agent",
+      "name": "Create Agent",
+      "description": "create_agent via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_agents",
+      "name": "List Agents",
+      "description": "list_agents via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "delegate_task",
+      "name": "Delegate Task",
+      "description": "delegate_task via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "complete_task",
+      "name": "Complete Task",
+      "description": "complete_task via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "acquire_files",
+      "name": "Acquire Files",
+      "description": "acquire_files via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "release_files",
+      "name": "Release Files",
+      "description": "release_files via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "start_sprint",
+      "name": "Start Sprint",
+      "description": "start_sprint via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "complete_sprint",
+      "name": "Complete Sprint",
+      "description": "complete_sprint via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_dashboard",
+      "name": "Get Dashboard",
+      "description": "get_dashboard via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_task_queue",
+      "name": "Get Task Queue",
+      "description": "get_task_queue via agent-orchestrator-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
