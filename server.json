@@ -4,9 +4,9 @@
   "version": "1.0.8",
   "description": "Agent Orchestrator MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp",
-    "source": "https://github.com/CSOAI-ORG/agent-orchestrator-mcp"
+    "source": "github",
+    "id": "1209265728"
   },
   "packages": [
     {
