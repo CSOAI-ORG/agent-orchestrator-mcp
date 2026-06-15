@@ -1,4 +1,4 @@
-<!-- mcp-name: CSOAI-ORG/agent-orchestrator-mcp -->
+<!-- mcp-name: io.github.CSOAI-ORG/agent-orchestrator-mcp -->
 [![MCP Scorecard: 86/100](https://img.shields.io/badge/proofof.ai-86%2F100-5b21b6)](https://proofof.ai/scorecard/agent-orchestrator-mcp.html)
 
 # Agent Orchestrator MCP
@@ -119,3 +119,8 @@ Once configured, ask your assistant, for example:
 - "Use `create_agent` to …"
 - "Use `list_agents` to …"
 - "Use `delegate_task` to …"
+
+## See also
+
+MEOK compliance MCP fleet:
+[`agent-commerce-protocol-mcp`](https://github.com/CSOAI-ORG/agent-commerce-protocol-mcp), [`agent-cost-allocator-mcp`](https://github.com/CSOAI-ORG/agent-cost-allocator-mcp), [`agent-identity-trust-mcp`](https://github.com/CSOAI-ORG/agent-identity-trust-mcp), [`agent-replay-debugger-mcp`](https://github.com/CSOAI-ORG/agent-replay-debugger-mcp), [`agent-x402-paywall-mcp`](https://github.com/CSOAI-ORG/agent-x402-paywall-mcp)
